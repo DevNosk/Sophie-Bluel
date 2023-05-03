@@ -186,3 +186,34 @@ footer nav ul {
 	margin: 2em
 }
 
+/* Modify by me */
+
+.object-menu{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 20px 0 40px 0 ;
+	gap:10px;
+}
+.object {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	object-fit: contain;
+	padding: 20px;
+	height: 37px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+
+	color: #1D6154;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.object-selected {
+	background: #1D6154;
+	color:white
+}
