@@ -33,12 +33,12 @@
     <section class="login-container">
       <div class="login-form">
         <h2>Log in</h2>
-        <form class="form-input">
+        <form class="form-input" id="form-input" action="http://localhost:5678/api/users/login">
           <label for="email">E-Mail</label>
-          <input type="email" name="email" id="email">
+          <input required type="email" name="email" id="email">
 
           <label for="password">Mot de passe</label>
-          <input type="password" name="password" id="password">
+          <input required type="password" name="password" id="password">
 
           <div class="btn-login-container">
             <button type="submit" id="btn-login">Se connecter</button>
@@ -57,7 +57,7 @@
       </ul>
     </nav>
   </footer>
-  <script src="login.js"></script>
   </body>
-
 </html>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/login.js"></script>
