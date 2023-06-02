@@ -74,3 +74,56 @@ function makeFilterFunction(object_menu_item, index) {
 		});
 	};
 }
+
+//-- Gestion de la connexion 
+window.addEventListener("DOMContentLoaded", function () {
+  const loginLink = document.getElementById("login");
+  const logoutLink = document.getElementById("logout");
+
+  if (localStorage.getItem("token")) {
+    loginLink.style.display = "none";
+    logoutLink.style.display = "inline-block"
+    logoutLink.addEventListener("click", function () {
+      localStorage.removeItem("token");
+    });
+		
+    //-- Afficher les boutons "btn-modifier"
+    const btnModifier = document.querySelectorAll(".btn-modifier");
+    btnModifier.forEach(function (button) {
+      button.style.display = "inline-block";
+
+    });
+  }
+});
+
+
+
+
+const modal = document.querySelector(".modal");
+const modalContainer = document.querySelector(".modalContainer");
+
+
+//----MODAL----//
+
+//-- Afficher La Modal
+const modalTrigger = document.getElementById("modal-trigger");
+modalTrigger.addEventListener("click", function () {
+  modal.style.display = "block";
+})
+
+//-- Fermer la Modal
+const exitModal = document.querySelectorAll(".btn-exit");
+exitModal.forEach(exitButton =>
+  exitButton.addEventListener("click", function () {
+    modalAdd.style.display = "none";
+    modalGalery.style.display = "flex";
+    modal.style.display = "none";
+  })
+)
+window.addEventListener("click", function (event) {
+  if (event.target === modalContainer) {
+    modalGalery.style.display = "flex"
+    modalAdd.style.display = "none";
+    modal.style.display = "none";
+  }
+});
