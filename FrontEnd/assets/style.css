@@ -443,6 +443,42 @@ footer {
 	margin-bottom: 10px;
 }
 
+/** Bouton Modifier **/
+.btn-modifier {
+	display: none;
+	position: absolute;
+	border: none;
+	background: none;
+	padding: 4px 8px;
+	cursor: pointer;
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+}
+
+.btn-modifier:hover {
+	color: #B1663C;
+}
+
+.btn-edit-pp {
+	bottom: -30px;
+	left: 52px;
+}
+
+.btn-edit-article {
+	top: -30px;
+	left: -6px;
+}
+
+.btn-edit-portfolio {
+	top: 590px;
+	right: 350px;
+}
+
+
 
 
 /* Modal */

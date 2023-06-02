@@ -92,6 +92,12 @@ window.addEventListener("DOMContentLoaded", function () {
     btnModifier.forEach(function (button) {
       button.style.display = "inline-block";
 
+			
+			  //-- Afficher la div "container-edit"
+				const containerEdit = document.querySelector(".container-edit");
+				containerEdit.style.display = "flex";
+
+
     });
   }
 });
