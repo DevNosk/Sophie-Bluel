@@ -15,8 +15,7 @@ object_menu_item_all.addEventListener(
 	'click',
 	makeFilterFunction(object_menu_item_all),
 );
-object_menu_item_all.click()
-
+object_menu_item_all.click();
 
 call_api_categories().then(returnCategories => {
 	if (returnCategories) {
@@ -42,7 +41,7 @@ call_api_categories().then(returnCategories => {
 
 function makeFilterFunction(object_menu_item, index) {
 	return () => {
-		gallery.innerHTML=''
+		gallery.innerHTML = '';
 		for (let i = 0; i < object_menu_items.length; i++) {
 			object_menu_items[i].classList.remove('object-selected');
 		}
@@ -52,7 +51,7 @@ function makeFilterFunction(object_menu_item, index) {
 			for (let i = 0; i < returnImage.length; i++) {
 				returnImage[i].category.id;
 				console.log(returnImage[i].category.id);
-				if (!index||index == returnImage[i].category.id) {
+				if (!index || index == returnImage[i].category.id) {
 					const figure = createHTMLTag('figure', '', '');
 					const image = createHTMLTagWithAttributes('img', [
 						['src', returnImage[i].imageUrl],
@@ -75,61 +74,61 @@ function makeFilterFunction(object_menu_item, index) {
 	};
 }
 
-//-- Gestion de la connexion 
-window.addEventListener("DOMContentLoaded", function () {
-  const loginLink = document.getElementById("login");
-  const logoutLink = document.getElementById("logout");
+//-- Gestion de la connexion
+window.addEventListener('DOMContentLoaded', function () {
+	const loginLink = document.getElementById('login');
+	const logoutLink = document.getElementById('logout');
 
-  if (localStorage.getItem("token")) {
-    loginLink.style.display = "none";
-    logoutLink.style.display = "inline-block"
-    logoutLink.addEventListener("click", function () {
-      localStorage.removeItem("token");
-    });
-		
-    //-- Afficher les boutons "btn-modifier"
-    const btnModifier = document.querySelectorAll(".btn-modifier");
-    btnModifier.forEach(function (button) {
-      button.style.display = "inline-block";
+	if (localStorage.getItem('token')) {
+		loginLink.style.display = 'none';
+		logoutLink.style.display = 'inline-block';
+		logoutLink.addEventListener('click', function () {
+			localStorage.removeItem('token');
+		});
 
-			
-			  //-- Afficher la div "container-edit"
-				const containerEdit = document.querySelector(".container-edit");
-				containerEdit.style.display = "flex";
+		//-- Afficher les boutons "btn-modifier"
+		const btnModifier = document.querySelector('.btn-modifier');
+		btnModifier.style.display = 'inline-block';
 
-
-    });
-  }
+		//-- Afficher la div "container-edit"
+		const containerEdit = document.querySelector('.container-edit');
+		containerEdit.style.display = 'flex';
+	}
 });
 
-
-
-
-const modal = document.querySelector(".modal");
-const modalContainer = document.querySelector(".modalContainer");
-
+const modal = document.querySelector('.modal');
+const modalContainer = document.querySelector('.modalContainer');
 
 //----MODAL----//
 
 //-- Afficher La Modal
-const modalTrigger = document.getElementById("modal-trigger");
-modalTrigger.addEventListener("click", function () {
-  modal.style.display = "block";
-})
+const modalTrigger = document.getElementById('modal-trigger');
+modalTrigger.addEventListener('click', function () {
+	modal.style.display = 'block';
+});
 
 //-- Fermer la Modal
-const exitModal = document.querySelectorAll(".btn-exit");
+const exitModal = document.querySelectorAll('.btn-exit');
 exitModal.forEach(exitButton =>
-  exitButton.addEventListener("click", function () {
-    modalAdd.style.display = "none";
-    modalGalery.style.display = "flex";
-    modal.style.display = "none";
-  })
-)
-window.addEventListener("click", function (event) {
-  if (event.target === modalContainer) {
-    modalGalery.style.display = "flex"
-    modalAdd.style.display = "none";
-    modal.style.display = "none";
-  }
+	exitButton.addEventListener('click', function () {
+		modalAdd.style.display = 'none';
+		modalGalery.style.display = 'flex';
+		modal.style.display = 'none';
+	}),
+);
+window.addEventListener('click', function (event) {
+	if (event.target === modalContainer) {
+		modalGalery.style.display = 'flex';
+		modalAdd.style.display = 'none';
+		modal.style.display = 'none';
+	}
 });
+
+
+//-- Passage sur la modal "ModalAdd"
+const addPicture = document.querySelector(".btn-addWork");
+addPicture.addEventListener("click", function () {
+  modalGalery.style.display = "none";
+  modalAdd.style.display = "block";
+})
+
