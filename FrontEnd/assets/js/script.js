@@ -19,9 +19,7 @@ object_menu_item_all.click();
 
 call_api_categories().then(returnCategories => {
 	if (returnCategories) {
-		console.log(returnCategories.length);
 		for (let i = 0; i < returnCategories.length; i++) {
-			console.log(returnCategories[i]);
 			const object_menu_item = createHTMLTag(
 				'div',
 				'object',
@@ -34,8 +32,6 @@ call_api_categories().then(returnCategories => {
 				makeFilterFunction(object_menu_item, returnCategories[i].id),
 			);
 		}
-	} else {
-		console.log('rien');
 	}
 });
 
@@ -47,12 +43,14 @@ function makeFilterFunction(object_menu_item, index) {
 		}
 		object_menu_item.classList.add('object-selected');
 		call_api_works().then(returnImage => {
-			console.log(index);
 			for (let i = 0; i < returnImage.length; i++) {
 				returnImage[i].category.id;
-				console.log(returnImage[i].category.id);
 				if (!index || index == returnImage[i].category.id) {
-					const figure = createHTMLTag('figure', '', '');
+					// const figure = createHTMLTag('figure', '', '');
+					const figure = createHTMLTagWithAttributes('figure',[
+						['data-id', returnImage[i].id]
+					])
+					
 					const image = createHTMLTagWithAttributes('img', [
 						['src', returnImage[i].imageUrl],
 						['alt', ''],
@@ -124,11 +122,16 @@ window.addEventListener('click', function (event) {
 	}
 });
 
-
 //-- Passage sur la modal "ModalAdd"
-const addPicture = document.querySelector(".btn-addWork");
-addPicture.addEventListener("click", function () {
-  modalGalery.style.display = "none";
-  modalAdd.style.display = "block";
-})
+const addPicture = document.querySelector('.btn-addWork');
+addPicture.addEventListener('click', function () {
+	modalGalery.style.display = 'none';
+	modalAdd.style.display = 'block';
+});
 
+//-- Retour sur la modal "ModalGalery"
+const returnModal = document.querySelector('.btn-back');
+returnModal.addEventListener('click', function () {
+	modalAdd.style.display = 'none';
+	modalGalery.style.display = 'flex';
+});
