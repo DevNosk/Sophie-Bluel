@@ -235,8 +235,6 @@ let deletePreviewPicture = function () {
 
 changeFiles.addEventListener('click', deletePreviewPicture);
 
-//-- Gestion du label des catégories dans ModalAdd
-const selectCategories = document.getElementById('categorie');
 
 getCategoriesforLabel();
 
@@ -247,20 +245,20 @@ formUploadWorks.addEventListener('submit', submitWork);
 
 function submitWork(e) {
 	e.preventDefault();
-	var token = localStorage.getItem('token');
+	let token = localStorage.getItem('token');
 	if (!token) {
 		return;
 	}
 
-	var title = document.getElementById('titre').value;
-	var category = document.getElementById('categorie').value;
-	var image = document.getElementById('uploadImg').files[0];
+	let title = document.getElementById('titre').value;
+	let category = document.getElementById('categorie').value;
+	let image = document.getElementById('uploadImg').files[0];
 
 	if (!title || !category || !image) {
 		return;
 	}
 
-	var formData = new FormData();
+	let formData = new FormData();
 	formData.append('title', title);
 	formData.append('category', category);
 	formData.append('image', image);
@@ -283,8 +281,9 @@ function submitWork(e) {
 			document.getElementById('categorie').value = '';
 			image = document.getElementById('uploadImg').innerHTML = '';
 			deletePreviewPicture();
-			const reloadPage = document.querySelector('.object-selected')
-			reloadPage.click()
+			// Recharge les images
+			const categorieButton = document.querySelector('.object-selected')
+			categorieButton.click() 
 		})
 		.catch(error => {
 			console.log("Erreur lors de l'envoi de l'image :", error);

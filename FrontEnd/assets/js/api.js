@@ -45,6 +45,7 @@ async function call_api_log(inputEmail, inputPassword) {
 }
 
 async function getCategoriesforLabel() {
+	const selectCategories = document.getElementById('categorie');
 	try {
 		const response = await fetch('http://localhost:5678/api/categories');
 		const categoriesForLabel = await response.json();
